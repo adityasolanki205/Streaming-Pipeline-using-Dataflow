@@ -26,7 +26,7 @@ def publish(publisher, topic_path, message):
 def callback(message_future):
     if message_future.exception(timeout=30):
         print('Publishing message on {} threw an Exception {}.'.format(
-            topic_name, message_future.exception()))
+            topic_path, message_future.exception()))
     else:
         print(message_future.result())
 
