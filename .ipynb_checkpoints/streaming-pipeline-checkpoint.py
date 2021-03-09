@@ -6,7 +6,7 @@ import apache_beam as beam
 from apache_beam.options.pipeline_options import PipelineOptions
 import argparse
 
-SCHEMA='Duration_month:INTEGER,Credit_history:STRING,Credit_amount:FLOAT,Saving:STRING,Employment_duration:STRING,Installment_rate:INTEGER,Personal_status:STRING,Debtors:STRING,Residential_Duration:INTEGER,Property:STRING,Age:INTEGER,Installment_plans:STRING,Housing:STRING,Number_of_credits:INTEGER,Job:STRING,Liable_People:INTEGER,Telephone:STRING,Foreign_worker:STRING,Classification:INTEGER,Month:STRING,days:INTEGER,File_Month:STRING,Version:INTEGER'
+SCHEMA='Duration_month:INTEGER,Credit_history:STRING,Credit_amount:FLOAT,Saving:STRING,Employment_duration:STRING,Installment_rate:INTEGER,Personal_status:STRING,Debtors:STRING,Residential_Duration:INTEGER,Property:STRING,Age:INTEGER,Installment_plans:STRING,Housing:STRING,Number_of_credits:INTEGER,Job:STRING,Liable_People:INTEGER,Telephone:STRING,Foreign_worker:STRING,Classification:INTEGER,Month:STRING,Days:INTEGER,File_Month:STRING,Version:INTEGER'
 
 
 class Split(beam.DoFn):
@@ -75,7 +75,7 @@ def Data_Wrangle(data):
         month = Month_Dict[existing_account[0]]
         days = int(''.join(existing_account[1:]))
         data['Month'] = month
-        data['days'] = days
+        data['Days'] = days
     purpose = list(data['Purpose'])
     for i in range(len(purpose)):
         file_month = Month_Dict[purpose[0]]
