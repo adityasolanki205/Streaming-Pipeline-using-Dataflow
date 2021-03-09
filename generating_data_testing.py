@@ -4,12 +4,10 @@
 # In[58]:
 
 
-from faker import Faker
 import random
 
 LINE ="""{Existing_account} {Duration_month} {Credit_history} {Purpose} {Credit_amount} {Saving} {Employment_duration} {Installment_rate} {Personal_status} {Debtors} {Residential_Duration} {Property} {Age} {Installment_plans} {Housing} {Number_of_credits} {Job} {Liable_People} {Telephone} {Foreign_worker} {Classification}"""
 def generate_log():
-    faker = Faker()
     existing_account = ['B11','A12','C14',
                         'D11','E11','A14',
                         'G12','F12','A11',
@@ -168,5 +166,5 @@ def generate_log():
     return log_line
 if __name__ == '__main__':
     while True:
-        line = generate_log_line()
+        line = generate_log()
         print(line)
