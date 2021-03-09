@@ -28,7 +28,7 @@ For the last two years, I have been part of a great learning curve wherein I hav
 
 ```bash
     # clone this repo:
-    git clone https://github.com/adityasolanki205/Batch-Processing-Pipeline-using-DataFlow.git
+    git clone https://github.com/adityasolanki205/Streaming-Pipeline-using-DataFlow.git
 ```
 
 ## Pipeline Construction
