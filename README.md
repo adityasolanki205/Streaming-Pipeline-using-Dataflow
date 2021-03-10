@@ -369,7 +369,7 @@ To test the code we need to do the following:
      --project trusty-field-283517 \
      --temp_location gs://streaming_pipeline_testing/temp \
      --staging_location gs://streaming_pipeline_testing/stream \
-     --region asia-east1 \
+     --region us-east1 \
      --job_name germanstreaminganalysis \
      --streaming 
 
