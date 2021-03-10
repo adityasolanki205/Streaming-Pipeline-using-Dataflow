@@ -5,8 +5,10 @@
 import apache_beam as beam
 from apache_beam.options.pipeline_options import PipelineOptions
 import argparse
+from google.cloud import pubsub_v1
 
 SCHEMA='Duration_month:INTEGER,Credit_history:STRING,Credit_amount:FLOAT,Saving:STRING,Employment_duration:STRING,Installment_rate:INTEGER,Personal_status:STRING,Debtors:STRING,Residential_Duration:INTEGER,Property:STRING,Age:INTEGER,Installment_plans:STRING,Housing:STRING,Number_of_credits:INTEGER,Job:STRING,Liable_People:INTEGER,Telephone:STRING,Foreign_worker:STRING,Classification:INTEGER,Month:STRING,Days:INTEGER,File_Month:STRING,Version:INTEGER'
+
 
 
 class Split(beam.DoFn):
@@ -92,10 +94,10 @@ def Del_Unwanted(data):
     
 def run(argv=None, save_main_session=True):
     parser = argparse.ArgumentParser()
-    parser.add_argument(
+    '''parser.add_argument(
       '--input',
       dest='input',
-      help='Input file to process')
+      help='Input file to process')'''
     parser.add_argument(
       '--project',
       dest='project',
@@ -103,9 +105,12 @@ def run(argv=None, save_main_session=True):
     known_args, pipeline_args = parser.parse_known_args(argv)
     options = PipelineOptions(pipeline_args)
     PROJECT_ID = known_args.project
+    TOPIC ="projects/PROJECT_ID/topics/german_credit_data"
     with beam.Pipeline(options=PipelineOptions()) as p:
-        data = (p 
-                     | beam.io.ReadFromText(known_args.input) )
+        encoded_data = (p 
+                     | 'Read data' >> beam.io.ReadFromPubSub(topic=TOPIC).with_output_types(bytes) )
+        data =( encoded_data
+                     | 'Decode' >> beam.Map(lambda x: x.decode('utf-8') )
         parsed_data = (data 
                      | 'Parsing Data' >> beam.ParDo(Split()))
         filtered_data = (parsed_data
