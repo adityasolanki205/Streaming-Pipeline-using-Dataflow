@@ -370,7 +370,7 @@ To test the code we need to do the following:
      --temp_location gs://streaming-pipeline-testing/temp \
      --staging_location gs://streaming-pipeline-testing/stream \
      --region asia-east1 \
-     --job_name german_streaming_analysis \
+     --job_name germanstreaminganalysis \
      --streaming 
 
 
