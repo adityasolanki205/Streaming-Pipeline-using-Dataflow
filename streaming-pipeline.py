@@ -110,7 +110,7 @@ def run(argv=None, save_main_session=True):
         encoded_data = (p 
                      | 'Read data' >> beam.io.ReadFromPubSub(topic=TOPIC).with_output_types(bytes) )
         data =( encoded_data
-                     | 'Decode' >> beam.Map(lambda x: x.decode('utf-8') )
+                     | 'Decode' >> beam.Map(lambda x: x.decode('utf-8') ) )
         parsed_data = (data 
                      | 'Parsing Data' >> beam.ParDo(Split()))
         filtered_data = (parsed_data
