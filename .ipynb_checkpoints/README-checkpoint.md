@@ -364,13 +364,14 @@ To test the code we need to do the following:
     sudo pip3 install apache_beam[gcp]
     
     7. Run the command and see the magic happen:
-     python3 batch-pipeline.py --runner DataFlowRunner 
-     --project <Your Project Name> 
-     --temp_location gs://batch-pipeline-testing/Batch/Temp 
-     --staging_location gs://batch-pipeline-testing/Batch/Stage 
-     --input gs://batch-pipeline-testing/Batch/german.data 
-     --region asia-east1 
-     --job_name germananalysis
+     python3 streaming-pipeline.py \
+     --runner DataFlowRunner \
+     --project <Your Project Name> \
+     --temp_location gs://streaming-pipeline-testing/temp \
+     --staging_location gs://streaming-pipeline-testing/stream \
+     --region asia-east1 \
+     --job_name german_streaming_analysis \
+     --streaming 
 
 
 ## Credits
