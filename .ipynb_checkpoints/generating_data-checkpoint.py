@@ -10,7 +10,7 @@ def generate_log():
     existing_account = ['B11','A12','C14',
                         'D11','E11','A14',
                         'G12','F12','A11',
-                        'NULL','H11','I11',
+                        'H11','I11',
                         'J14','K14','L11',
                         'A13'
                        ]
@@ -30,7 +30,7 @@ def generate_log():
                     ]
     Credit_history = random.choice(credit_history)
     
-    purpose = [ 'A43','NULL','A42',
+    purpose = [ 'A43','A42',
                 'A40','A46','A41',
                 'A49','A44','A45',
                 'A410','A48'
@@ -66,8 +66,7 @@ def generate_log():
     personal_status = ['A93',
     'A92',
     'A91',
-    'A94',
-    'NULL'
+    'A94'
     ]
     Personal_status = random.choice(personal_status)
     
@@ -87,8 +86,7 @@ def generate_log():
     Proprty = ['A121',
     'A122',
     'A124',
-    'A123',
-    'NULL'
+    'A123'
     ]
     Property = random.choice(Proprty)
     
@@ -99,8 +97,7 @@ def generate_log():
     
     installment_plans = ['A143',
                         'A141',
-                        'A142',
-                        'NULL'
+                        'A142'
     ]
     Installment_plans = random.choice(installment_plans)
     
@@ -134,7 +131,7 @@ def generate_log():
     'A202']
     Foreign_worker = random.choice(foreign_worker)
     
-    classification = ['NULL',
+    classification = [
     '1',
     '2']
     Classification = random.choice(classification)
