@@ -105,7 +105,7 @@ def run(argv=None, save_main_session=True):
     known_args, pipeline_args = parser.parse_known_args(argv)
     options = PipelineOptions(pipeline_args)
     PROJECT_ID = known_args.project
-    TOPIC ="projects/PROJECT_ID/topics/german_credit_data"
+    TOPIC ="projects/trusty-field-283517/topics/german_credit_data"
     with beam.Pipeline(options=PipelineOptions()) as p:
         encoded_data = (p 
                      | 'Read data' >> beam.io.ReadFromPubSub(topic=TOPIC).with_output_types(bytes) )
