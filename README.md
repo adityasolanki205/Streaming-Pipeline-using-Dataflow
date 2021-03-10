@@ -366,9 +366,9 @@ To test the code we need to do the following:
     7. Run the command and see the magic happen:
      python3 streaming-pipeline.py \
      --runner DataFlowRunner \
-     --project <Your Project Name> \
-     --temp_location gs://streaming-pipeline-testing/temp \
-     --staging_location gs://streaming-pipeline-testing/stream \
+     --project trusty-field-283517 \
+     --temp_location gs://streaming_pipeline_testing/temp \
+     --staging_location gs://streaming_pipeline_testing/stream \
      --region asia-east1 \
      --job_name germanstreaminganalysis \
      --streaming 
