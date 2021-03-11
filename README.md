@@ -1,13 +1,14 @@
 # Streaming Pipeline using DataFlow (Under Construction)
-This is one of the part of **Introduction to Apache Beam using Python** Repository. Here we will try to learn basics of Apache Beam to create **Streaming** pipelines. We will learn step by step how to create a streaming pipeline using [German Credit Risk](https://www.kaggle.com/uciml/german-credit). The complete process is divided into 7 parts:
+This is one of the part of **Introduction to Apache Beam using Python** Repository. Here we will try to learn basics of Apache Beam to create **Streaming** pipelines. We will learn step by step how to create a streaming pipeline using [German Credit Risk](https://www.kaggle.com/uciml/german-credit). The complete process is divided into 8 parts:
 
-1. **Reading Data from Pub Sub**
-2. **Parsing the data**
-3. **Filtering the data**
-4. **Performing Type Convertion**
-5. **Data wrangling**
-6. **Deleting Unwanted Columns**
-7. **Inserting Data in Bigquery**
+1. **Generating Streaming Data**
+2. **Reading Data from Pub Sub**
+3. **Parsing the data**
+4. **Filtering the data**
+5. **Performing Type Convertion**
+6. **Data wrangling**
+7. **Deleting Unwanted Columns**
+8. **Inserting Data in Bigquery**
 
 
 ## Motivation
@@ -45,7 +46,53 @@ Below are the steps to setup the enviroment and run the codes:
     git clone https://github.com/adityasolanki205/Batch-Processing-Pipeline-using-DataFlow.git
 ```
 
-3. **Reading the Data**: Now we will go step by step to create a pipeline starting with reading the data. The data is read using **beam.io.ReadFromText()**. Here we will just read the input values and save it in a file. The output is stored in text file named simpleoutput.
+3. **Generating Streaming Data**: We need to generate streaming data that can be published to Pub Sub. Then those messages will be picked to be processed by the pipeline. To generate data we will use **random()** library to create input messages. Using the generating_data.py we will be able to generate random data in the required format. This generated data will be published to Pub/Sub using publish_to_pubsub.py. Here we will use PublisherClient object, add the path to the topic using the topic_path method and call the publish_to_pubsub() function while passing the topic_path and data.
+
+```python
+    import random
+
+    LINE ="""   {Existing_account} 
+                {Duration_month} 
+                {Credit_history} 
+                {Purpose} 
+                {Credit_amount} 
+                .....
+                {Classification}"""
+
+    def generate_log():
+        existing_account = ['B11','A12','C14',
+                            'D11','E11','A14',
+                            'G12','F12','A11',
+                            'NULL','H11','I11',
+                            'J14','K14','L11',
+                            'A13'
+                           ]
+        Existing_account = random.choice(existing_account)
+    
+        duration_month = []
+        for i  in range(6, 90 , 3):
+            duration_month.append(i)
+        Duration_month = random.choice(duration_month)
+        ....
+        
+        classification = ['NULL',
+        '1',
+        '2']
+        Classification = random.choice(classification)
+        log_line = LINE.format(
+            Existing_account=Existing_account,
+            Duration_month=Duration_month,
+            Credit_history=Credit_history,
+            Purpose=Purpose,
+            ...
+            Classification=Classification
+        )
+
+        return log_line
+
+```
+
+3. **Reading Data from Pub Sub**: Now we will start reading data from Pub sub to start the pipeline . The data is read using **beam.io.ReadFromPubSub()**. Here we will just read the input message by providing the TOPIC. The output is decoded.
 
 ```python
     def run(argv=None, save_main_session=True):
