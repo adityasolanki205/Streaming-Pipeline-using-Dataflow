@@ -23,12 +23,13 @@ For the last two years, I have been part of a great learning curve wherein I hav
 - [Google DataFlow](https://cloud.google.com/dataflow)
 - [Google Cloud Storage](https://cloud.google.com/storage)
 - [Google Bigquery](https://cloud.google.com/bigquery)
+- [Google Pub/Sub](https://cloud.google.com/pubsub)
 
 ## Cloning Repository
 
 ```bash
     # clone this repo:
-    git clone https://github.com/adityasolanki205/Streaming-Pipeline-using-DataFlow.git
+    git clone https://github.com/adityasolanki205/Streaming-Pipeline-using-Dataflow.git
 ```
 
 ## Pipeline Construction
