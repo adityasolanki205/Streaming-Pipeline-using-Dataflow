@@ -92,7 +92,7 @@ Below are the steps to setup the enviroment and run the codes:
 
 ```
 
-3. **Reading Data from Pub Sub**: Now we will start reading data from Pub sub to start the pipeline . The data is read using **beam.io.ReadFromPubSub()**. Here we will just read the input message by providing the TOPIC. The output is decoded.
+3. **Reading Data from Pub Sub**: Now we will start reading data from Pub sub to start the pipeline . The data is read using **beam.io.ReadFromPubSub()**. Here we will just read the input message by providing the TOPIC and the output is decoded which was encoded while generating the data. 
 
 ```python
     def run(argv=None, save_main_session=True):
@@ -108,11 +108,14 @@ Below are the steps to setup the enviroment and run the codes:
           help='Output file to write results to.')
         known_args, pipeline_args = parser.parse_known_args(argv)
         options = PipelineOptions(pipeline_args)
+        TOPIC ="projects/trusty-field-283517/topics/german_credit_data"
         with beam.Pipeline(options=PipelineOptions()) as p:
-            data = (p 
-                         | beam.io.ReadFromText(known_args.input)
-                         | 'Writing output' >> beam.io.WriteToText(known_args.output)
-                   ) 
+            encoded_data = ( p 
+                             | 'Read data' >> beam.io.ReadFromPubSub(topic=TOPIC).with_output_types(bytes) 
+                           )
+                    data = ( encoded_data
+                             | 'Decode' >> beam.Map(lambda x: x.decode('utf-8') ) 
+                           ) 
     if __name__ == '__main__':
         run()
 ``` 
