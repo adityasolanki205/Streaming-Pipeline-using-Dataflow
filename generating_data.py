@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[58]:
-
-
 import random
 
 LINE ="""{Existing_account} {Duration_month} {Credit_history} {Purpose} {Credit_amount} {Saving} {Employment_duration} {Installment_rate} {Personal_status} {Debtors} {Residential_Duration} {Property} {Age} {Installment_plans} {Housing} {Number_of_credits} {Job} {Liable_People} {Telephone} {Foreign_worker} {Classification}"""
