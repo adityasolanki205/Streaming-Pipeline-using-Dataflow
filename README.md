@@ -401,18 +401,16 @@ To test the code we need to do the following:
     1. Copy the repository in Cloud SDK using below command:
     git clone https://github.com/adityasolanki205/Batch-Processing-Pipeline-using-DataFlow.git
     
-    2. Create a Storage Bucket in asia-east1.
+    2. Create a Storage Bucket in us-east1 with 2 separate folders temp and stream
     
-    3. Copy the data file in the cloud Bucket using the below commad
-    cd Batch-Processing-Pipeline-using-DataFlow/data
-    gsutil cp german.data gs://batch-pipeline-testing/Batch/
+    3. Create a Dataset in us-east1 by the name GermanCredit
     
-    4. Create a Dataset in asia-east1 by the name GermanCredit
+    4. Create a table in GermanCredit dataset by the name GermanCreditTable
     
-    5. Create a table in GermanCredit dataset by the name GermanCreditTable
-    
-    6. Install Apache Beam on the SDK using below command
+    5. Install Apache Beam on the SDK using below command
     sudo pip3 install apache_beam[gcp]
+    
+    6. Run publish_to_pubsub.py in Cloud SDK
     
     7. Run the command and see the magic happen:
      python3 streaming-pipeline.py \
