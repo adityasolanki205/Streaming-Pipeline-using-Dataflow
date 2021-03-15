@@ -407,12 +407,14 @@ To test the code we need to do the following:
     
     4. Create a table in GermanCredit dataset by the name GermanCreditTable
     
-    5. Install Apache Beam on the SDK using below command
+    5. Create Pub Sub Topic by the name german_credit_data
+    
+    6. Install Apache Beam on the SDK using below command
     sudo pip3 install apache_beam[gcp]
     
-    6. Run publish_to_pubsub.py in Cloud SDK
+    7. Run publish_to_pubsub.py in Cloud SDK
     
-    7. Run the command and see the magic happen:
+    8. Run the command and see the magic happen:
      python3 streaming-pipeline.py \
      --runner DataFlowRunner \
      --project trusty-field-283517 \
