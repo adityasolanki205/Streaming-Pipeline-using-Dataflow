@@ -399,7 +399,7 @@ Below are the steps to setup the enviroment and run the codes:
 To test the code we need to do the following:
 
     1. Copy the repository in Cloud SDK using below command:
-    git clone https://github.com/adityasolanki205/Batch-Processing-Pipeline-using-DataFlow.git
+    git clone https://github.com/adityasolanki205/Streaming-Pipeline-using-DataFlow.git
     
     2. Create a Storage Bucket in us-east1 with 2 separate folders temp and stream
     
