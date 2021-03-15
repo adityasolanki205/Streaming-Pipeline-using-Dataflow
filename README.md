@@ -120,7 +120,7 @@ Below are the steps to setup the enviroment and run the codes:
         run()
 ``` 
 
-4. **Parsing the data**: After reading the input file we will split the data using split(). Data is segregated into different columns to be used in further steps. We will **ParDo()** to create a split function. The output of this step is present in SplitPardo text file.
+4. **Parsing the data**: After reading the input from Pub-Sub we will split the data using split(). Data is segregated into different columns to be used in further steps. We will **ParDo()** to create a split function. The output of this step is present in SplitPardo text file.
 
 ```python
     class Split(beam.DoFn):
