@@ -412,9 +412,7 @@ To test the code we need to do the following:
     6. Install Apache Beam on the SDK using below command
     sudo pip3 install apache_beam[gcp]
     
-    7. Run publish_to_pubsub.py in Cloud SDK
-    
-    8. Run the command and see the magic happen:
+    7. Run the command and see the magic happen:
      python3 streaming-pipeline.py \
      --runner DataFlowRunner \
      --project trusty-field-283517 \
@@ -423,6 +421,8 @@ To test the code we need to do the following:
      --region us-east1 \
      --job_name germanstreaminganalysis \
      --streaming 
+     
+    8. Open one more tab in cloud SDK and run publish_to_pubsub.py in Cloud SDK
 
 
 ## Credits
