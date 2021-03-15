@@ -422,8 +422,8 @@ To test the code we need to do the following:
      --job_name germanstreaminganalysis \
      --streaming 
      
-    8. Open one more tab in cloud SDK and run publish_to_pubsub.py in Cloud SDK
-
+    8. Open one more tab in cloud SDK and run below command 
+    python3 publish_to_pubsub.py
 
 ## Credits
 1. Akash Nimare's [README.md](https://gist.github.com/akashnimare/7b065c12d9750578de8e705fb4771d2f#file-readme-md)
