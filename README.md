@@ -1,5 +1,5 @@
-# Streaming Pipeline using DataFlow (Under Construction)
-This is one of the part of **Introduction to Apache Beam using Python** Repository. Here we will try to learn basics of Apache Beam to create **Streaming** pipelines. We will learn step by step how to create a streaming pipeline using [German Credit Risk](https://www.kaggle.com/uciml/german-credit). The complete process is divided into 8 parts:
+# Streaming Pipeline using DataFlow
+This is one of the **Introduction to Apache Beam using Python** Repository. Here we will try to learn basics of Apache Beam to create **Streaming** pipelines. We will learn step by step how to create a streaming pipeline using [German Credit Risk](https://www.kaggle.com/uciml/german-credit). The complete process is divided into 8 parts:
 
 1. **Generating Streaming Data**
 2. **Reading Data from Pub Sub**
