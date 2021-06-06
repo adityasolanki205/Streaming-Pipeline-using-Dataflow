@@ -413,7 +413,7 @@ To test the code we need to do the following:
     1. Copy the repository in Cloud SDK using below command:
     git clone https://github.com/adityasolanki205/Streaming-Pipeline-using-DataFlow.git
     
-    2. Create a Storage Bucket in us-east1 with 2 separate folders temp and stream
+    2. Create a Storage Bucket by the name streaming_pipeline_testing in us-east1 with 2 separate folders temp and stream
     
     3. Create a Dataset in us-east1 by the name GermanCredit
     
